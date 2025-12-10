@@ -182,6 +182,47 @@
             box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
         }
 
+        .hero-form {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-form input[type="email"] {
+            padding: 1rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 1rem;
+            width: 280px;
+            transition: border-color 0.3s;
+        }
+
+        .hero-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .hero-form button {
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .hero-form button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+        }
+
         .hero-image {
             position: relative;
         }
@@ -862,6 +903,21 @@
                 flex-direction: column;
             }
 
+            .hero-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-form input[type="email"] {
+                width: 100%;
+                max-width: 320px;
+            }
+
+            .hero-form button {
+                width: 100%;
+                max-width: 320px;
+            }
+
             .social-proof {
                 justify-content: center;
             }
@@ -908,12 +964,11 @@
             <div class="hero-content">
                 <h1>Stop being your toddler's <span>human remote control</span></h1>
                 <p class="subtitle">Tiny cassettes that let your child control their own music. No swiping. No staring at screens. Just tap and play.</p>
-                <a href="#waitlist" class="hero-cta">
-                    Join the waitlist
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                </a>
+                <form class="hero-form" action="https://formspree.io/f/mkgdqzgq" method="POST">
+                    <input type="hidden" name="_next" value="https://mattys-jukebox.vercel.app/thanks.html">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Join the waitlist</button>
+                </form>
                 <div class="social-proof">
                     <p class="social-proof-text">Join parents getting early access</p>
                 </div>
