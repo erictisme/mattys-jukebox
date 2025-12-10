@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matty - Screen-free music independence for toddlers</title>
-    <meta name="description" content="Give your toddler DJ powers without screen time. Matty Tiles let kids play music with one tap. No expensive gadgets. Works with Spotify.">
+    <title>Matty's Jukebox - Screen-free music independence for toddlers</title>
+    <meta name="description" content="Give your toddler DJ powers without screen time. Matty's Jukebox cassettes let kids play music with one tap. No expensive gadgets. Works with Spotify.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Matty - Stop being your kid's human remote control">
-    <meta property="og:description" content="Screen-free music independence for toddlers. Tap a tile, play a song. That simple.">
+    <meta property="og:title" content="Matty's Jukebox - Stop being your kid's human remote control">
+    <meta property="og:description" content="Screen-free music independence for toddlers. Tap a cassette, play a song. That simple.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="og-image.jpg">
 
@@ -75,6 +75,54 @@
         .nav-cta:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
+        }
+
+        .nav-form {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-form input[type="email"] {
+            padding: 0.5rem 1rem;
+            border: 2px solid #eee;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            width: 200px;
+            transition: border-color 0.3s;
+        }
+
+        .nav-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .nav-form button {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-form button:hover {
+            background: var(--primary-dark);
+        }
+
+        .nav-cta-mobile {
+            display: none;
+            background: var(--primary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
         }
 
         /* Hero Section */
@@ -817,6 +865,18 @@
             .social-proof {
                 justify-content: center;
             }
+
+            .nav-form {
+                display: none;
+            }
+
+            .nav-cta-mobile {
+                display: block;
+            }
+
+            .logo {
+                font-size: 1.4rem;
+            }
         }
 
         /* Animations */
@@ -833,8 +893,13 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">Matty</div>
-        <a href="#waitlist" class="nav-cta">Get early access</a>
+        <div class="logo">Matty's Jukebox</div>
+        <form class="nav-form" action="https://formspree.io/f/mkgdqzgq" method="POST">
+            <input type="hidden" name="_next" value="https://mattys-jukebox.vercel.app/thanks.html">
+            <input type="email" name="email" placeholder="Your email" required>
+            <button type="submit">Join</button>
+        </form>
+        <a href="#waitlist" class="nav-cta-mobile">Get early access</a>
     </nav>
 
     <!-- Hero Section -->
@@ -1011,7 +1076,7 @@
 
             <div class="pricing-cards" style="grid-template-columns: 1fr; max-width: 450px;">
                 <div class="pricing-card featured" style="transform: none;">
-                    <h3>Matty Kit</h3>
+                    <h3>Starter Kit</h3>
                     <p class="price">$12<span>/month</span></p>
                     <p class="price-note">First month includes 20 customizable cassettes</p>
                     <ul>
@@ -1026,7 +1091,7 @@
                 </div>
             </div>
 
-            <p style="text-align: center; margin-top: 2rem; color: #666; font-size: 0.95rem;">Need more? Additional cassettes from $15 for 10.</p>
+            <p style="text-align: center; margin-top: 2rem; color: #666; font-size: 0.95rem;">Need more? Additional cassettes $20 for 10.</p>
         </div>
     </section>
 
@@ -1078,7 +1143,7 @@
 
                 <div class="faq-item">
                     <div class="faq-question">What's included in my subscription?</div>
-                    <div class="faq-answer">Your first month includes 20 cassettes shipped to you, plus full access to the Matty app. Each cassette is durable, washable, and designed to survive toddler life. After that, it's $12/month for continued app access. Need more cassettes? Add-on packs start from $15 for 10.</div>
+                    <div class="faq-answer">Your first month includes 20 cassettes shipped to you, plus full access to the Matty's Jukebox app. Each cassette is durable, washable, and designed to survive toddler life. After that, it's $12/month for continued app access. Need more cassettes? Add-on packs are $20 for 10.</div>
                 </div>
 
                 <div class="faq-item">
