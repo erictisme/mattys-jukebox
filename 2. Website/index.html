@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matty - Screen-free music independence for toddlers</title>
+    <meta name="description" content="Give your toddler DJ powers without screen time. Matty Tiles let kids play music with one tap. No expensive gadgets. Works with Spotify.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Matty - Stop being your kid's human remote control">
+    <meta property="og:description" content="Screen-free music independence for toddlers. Tap a tile, play a song. That simple.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="og-image.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --primary-dark: #ee5a5a;
+            --secondary: #4ECDC4;
+            --accent: #FFE66D;
+            --dark: #2C3E50;
+            --light: #F7F9FC;
+            --text: #333;
+            --text-light: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--light);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, #fff 0%, #f0f7ff 100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        .hero-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .hero-badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transform: rotate(15deg);
+        }
+
+        .social-proof {
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-proof-avatars {
+            display: flex;
+        }
+
+        .social-proof-avatars img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid white;
+            margin-left: -10px;
+        }
+
+        .social-proof-avatars img:first-child {
+            margin-left: 0;
+        }
+
+        .social-proof-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .social-proof-text strong {
+            color: var(--dark);
+        }
+
+        /* Problem Section */
+        .problem {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .section-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .problem-story {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        .problem-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .problem-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .problem-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .problem-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        /* Solution Section */
+        .solution {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--secondary) 0%, #3dbdb5 100%);
+            color: white;
+        }
+
+        .solution .section-label {
+            color: var(--accent);
+        }
+
+        .solution .section-title {
+            color: white;
+        }
+
+        .solution-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: white;
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            opacity: 0.9;
+        }
+
+        /* Comparison Section */
+        .comparison {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+        }
+
+        .comparison-table th {
+            background: var(--dark);
+            color: white;
+            font-weight: 700;
+        }
+
+        .comparison-table th:first-child {
+            text-align: left;
+        }
+
+        .comparison-table th:not(:first-child) {
+            text-align: center;
+        }
+
+        .comparison-table td:not(:first-child) {
+            text-align: center;
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--light);
+        }
+
+        .comparison-table .highlight {
+            background: #e8fff9;
+        }
+
+        .check {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .cross {
+            color: #ccc;
+        }
+
+        .price-highlight {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .price-comparison {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+            border-radius: 16px;
+            border: 2px dashed var(--primary);
+        }
+
+        .savings {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* Haidt Section */
+        .haidt {
+            padding: 6rem 2rem;
+            background: var(--dark);
+            color: white;
+        }
+
+        .haidt-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .haidt-quote {
+            font-size: 1.75rem;
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .haidt-source {
+            font-size: 1rem;
+            opacity: 0.7;
+            margin-bottom: 3rem;
+        }
+
+        .haidt-points {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .haidt-point {
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+        }
+
+        .haidt-point-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .haidt-point p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+
+        .pricing .section-title {
+            text-align: center;
+        }
+
+        .pricing-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-note {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-card.featured {
+            border: 3px solid var(--primary);
+            transform: scale(1.02);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.02) translateY(-5px);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 0.5rem 0;
+        }
+
+        .pricing-card .price span {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .pricing-card .price-note {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-card .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.1rem;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 1rem 0;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .pricing-card li {
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .pricing-card li::before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .pricing-cta {
+            display: block;
+            background: var(--primary);
+            color: white;
+            padding: 0.9rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .pricing-cta:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Email Capture Section */
+        .email-capture {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, #ff8585 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .email-capture .section-title {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .email-capture-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .email-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .email-form input {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .email-form button {
+            background: var(--dark);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .email-form button:hover {
+            background: #1a2a3a;
+            transform: translateY(-2px);
+        }
+
+        .email-promise {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .waitlist-count {
+            margin-top: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .waitlist-count strong {
+            font-size: 1.5rem;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .faq .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .faq-list {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "−";
+        }
+
+        .faq-answer {
+            padding-top: 1rem;
+            color: var(--text-light);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+        }
+
+        .footer-copyright {
+            margin-top: 2rem;
+            opacity: 0.6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1100px) {
+            .pricing-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .problem-cards,
+            .how-it-works,
+            .haidt-points {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: none;
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-5px);
+            }
+
+            .comparison-table {
+                font-size: 0.85rem;
+            }
+
+            .email-form {
+                flex-direction: column;
+            }
+
+            .social-proof {
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-badge {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Matty</div>
+        <a href="#waitlist" class="nav-cta">Get early access</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Stop being your toddler's <span>human remote control</span></h1>
+                <p class="subtitle">Tiny cassettes that let your child control their own music. No swiping. No staring at screens. Just tap and play.</p>
+                <a href="#waitlist" class="hero-cta">
+                    Join the waitlist
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <div class="social-proof">
+                    <p class="social-proof-text">Join parents getting early access</p>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="hero.png" alt="Toddler tapping Matty Tile on phone while mother cooks in background">
+                            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="section-container">
+            <p class="section-label">The problem</p>
+            <h2 class="section-title">Sound familiar?</h2>
+            <p class="problem-story">You're cooking dinner. Your toddler screams "BABY SHARK!" for the 47th time today. You have to drop everything, wash your hands, unlock your phone, open Spotify, and change the song. Again.</p>
+
+            <div class="problem-cards">
+                <div class="problem-card">
+                    <div class="problem-card-icon">😫</div>
+                    <h3>"Play this song!"</h3>
+                    <p>Interrupted 20-50 times a day to change songs on your phone</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-card-icon">📱</div>
+                    <h3>No swiping, no staring</h3>
+                    <p>You want music without your child scrolling, tapping, or zoning out on a screen</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-card-icon">💸</div>
+                    <h3>Expensive alternatives</h3>
+                    <p>Yoto costs $145+ and locks you into proprietary cards at $10-15 each</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution">
+        <div class="section-container">
+            <p class="section-label">The solution</p>
+            <h2 class="section-title">Give your toddler DJ powers</h2>
+            <p class="solution-subtitle">Each cassette has a picture your child recognizes. One tap on your phone = their song plays. That's it.</p>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works-section" style="padding: 6rem 2rem; background: white;">
+        <div class="section-container">
+            <p class="section-label">How it works</p>
+            <h2 class="section-title">Set up in 5 minutes</h2>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem;">
+                <div>
+                    <img src="unboxing.png" alt="Matty cassettes unboxing" style="width: 100%; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+                </div>
+                <div>
+                    <div style="margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                            <span style="background: #4ECDC4; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">1</span>
+                            <h3 style="font-size: 1.2rem; color: #2C3E50;">Subscribe and get your cassettes</h3>
+                        </div>
+                        <p style="color: #666; margin-left: 48px;">Your first box includes 20 cassettes, ready to set up.</p>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                            <span style="background: #4ECDC4; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">2</span>
+                            <h3 style="font-size: 1.2rem; color: #2C3E50;">Download the app, connect Spotify</h3>
+                        </div>
+                        <p style="color: #666; margin-left: 48px;">Open the Matty app, sign in with Spotify, and you're ready to go.</p>
+                    </div>
+
+                    <div style="margin-bottom: 2rem;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                            <span style="background: #4ECDC4; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">3</span>
+                            <h3 style="font-size: 1.2rem; color: #2C3E50;">Assign songs to each cassette</h3>
+                        </div>
+                        <p style="color: #666; margin-left: 48px;">Pick any song from Spotify. Tap a cassette to the phone to link them.</p>
+                    </div>
+
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                            <span style="background: #4ECDC4; color: white; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">4</span>
+                            <h3 style="font-size: 1.2rem; color: #2C3E50;">Hand them to your child</h3>
+                        </div>
+                        <p style="color: #666; margin-left: 48px;">Phone stays locked, face-down. Your child taps a cassette, their song plays. You get your peace back.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <div class="section-container">
+            <p class="section-label">Why Matty</p>
+            <h2 class="section-title">How we compare</h2>
+
+            <table class="comparison-table">
+                <tr>
+                    <th></th>
+                    <th>Yoto Player</th>
+                    <th>Matty</th>
+                </tr>
+                <tr class="highlight">
+                    <td><strong>Cost to start</strong></td>
+                    <td>$145+ SGD</td>
+                    <td class="price-highlight">$10/month</td>
+                </tr>
+                <tr>
+                    <td><strong>Content</strong></td>
+                    <td>Buy cards ($10-15 each)</td>
+                    <td class="check">Your Spotify library</td>
+                </tr>
+                <tr class="highlight">
+                    <td><strong>Change songs?</strong></td>
+                    <td class="cross">Buy new cards</td>
+                    <td class="check">Swap anytime in app</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <!-- Haidt Section -->
+    <section class="haidt">
+        <div class="haidt-container">
+            <p class="section-label" style="color: var(--accent);">The research</p>
+            <p class="haidt-quote">"We've had a play-based childhood for 200 million years. That's how we wire up our brains. Somewhere in the 1990s, it stopped."</p>
+            <p class="haidt-source">— Jonathan Haidt, "The Anxious Generation" (#1 NYT bestseller, 52 weeks)</p>
+
+            <h2 class="section-title" style="color: white; font-size: 2rem;">Matty is designed for real play</h2>
+
+            <div class="haidt-points">
+                <div class="haidt-point">
+                    <div class="haidt-point-icon">👆</div>
+                    <p><strong>No swiping</strong><br>Phone stays locked, face down</p>
+                </div>
+                <div class="haidt-point">
+                    <div class="haidt-point-icon">🎯</div>
+                    <p><strong>Child-controlled</strong><br>They make real choices</p>
+                </div>
+                <div class="haidt-point">
+                    <div class="haidt-point-icon">🧱</div>
+                    <p><strong>Tactile</strong><br>Physical tiles, not pixels</p>
+                </div>
+                <div class="haidt-point">
+                    <div class="haidt-point-icon">🌱</div>
+                    <p><strong>Independent</strong><br>Builds autonomy early</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="section-container">
+            <p class="section-label">Pricing</p>
+            <h2 class="section-title">Get started</h2>
+
+            <div class="pricing-cards" style="grid-template-columns: 1fr; max-width: 450px;">
+                <div class="pricing-card featured" style="transform: none;">
+                    <h3>Matty Kit</h3>
+                    <p class="price">$12<span>/month</span></p>
+                    <p class="price-note">First month includes 20 customizable cassettes</p>
+                    <ul>
+                        <li>20 cassettes shipped to you</li>
+                        <li>Matty app access</li>
+                        <li>Assign any Spotify song to any cassette</li>
+                        <li>Change songs whenever you want</li>
+                        <li>Works with Spotify Premium</li>
+                        <li>Cancel anytime</li>
+                    </ul>
+                    <a href="#waitlist" class="pricing-cta">Join the waitlist</a>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; color: #666; font-size: 0.95rem;">Need more? Additional cassettes from $15 for 10.</p>
+        </div>
+    </section>
+
+    <!-- Email Capture Section -->
+    <section class="email-capture" id="waitlist">
+        <div class="section-container">
+            <h2 class="section-title">Get early access</h2>
+            <p class="email-capture-subtitle">Join the waitlist for exclusive launch pricing and first dibs when we go live.</p>
+
+            <form class="email-form" action="https://formspree.io/f/mkgdqzgq" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Join waitlist</button>
+            </form>
+
+            <p class="email-promise">No spam. Just launch updates. Unsubscribe anytime.</p>
+
+            <div class="waitlist-count">
+                Be the first to know when we launch
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="section-container">
+            <h2 class="section-title">Frequently asked questions</h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Do I need Spotify Premium?</div>
+                    <div class="faq-answer">Yes, Spotify Premium is required for the best experience (no ads interrupting your toddler's music). Most families already have it. We're working on Apple Music support for a future update.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What ages is this for?</div>
+                    <div class="faq-answer">Designed for toddlers aged 18 months to 5 years. The cassettes are easy for little hands to hold and tap. Kids as young as 18 months can learn the cause-and-effect of tapping to play music.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Is it safe for kids?</div>
+                    <div class="faq-answer">Absolutely. There are no batteries, no screens, and no small parts. The cassettes are made from child-safe materials and use the same technology as contactless payment cards — completely safe.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Does it work with any phone?</div>
+                    <div class="faq-answer">Works with any NFC-enabled smartphone (most phones made after 2018). This includes iPhone XR and newer, and most Android phones. We'll provide a compatibility check before you order.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">What's included in my subscription?</div>
+                    <div class="faq-answer">Your first month includes 20 cassettes shipped to you, plus full access to the Matty app. Each cassette is durable, washable, and designed to survive toddler life. After that, it's $12/month for continued app access. Need more cassettes? Add-on packs start from $15 for 10.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Can I change which songs are on the cassettes?</div>
+                    <div class="faq-answer">Yes! You can reassign any cassette to any song on Spotify, anytime. When your child gets bored of Baby Shark (finally!), just open the app and assign a new song.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Matty</div>
+        <p>Screen-free music independence for toddlers</p>
+
+        <div class="footer-links">
+            <a href="#waitlist">Join waitlist</a>
+            <a href="mailto:erictansongyi@gmail.com">Contact us</a>
+            <a href="privacy.html">Privacy policy</a>
+        </div>
+
+        <p class="footer-copyright">&copy; 2025 Matty. Made with love in Singapore.</p>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+
+                // Open clicked if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
