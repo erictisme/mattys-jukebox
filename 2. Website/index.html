@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matty's Jukebox - Screen-free music independence for toddlers</title>
-    <meta name="description" content="Give your toddler DJ powers without screen time. Matty's Jukebox cassettes let kids play music with one tap. No expensive gadgets. Works with Spotify.">
+    <title>Matty's Jukebox - Their music, their terms, without screens</title>
+    <meta name="description" content="Let kids 2-10 pick their own music without screens. Tap a cassette, play a song. Works with your Spotify library.">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Matty's Jukebox - Stop being your kid's human remote control">
-    <meta property="og:description" content="Screen-free music independence for toddlers. Tap a cassette, play a song. That simple.">
+    <meta property="og:title" content="Matty's Jukebox - Their music, their terms, without screens">
+    <meta property="og:description" content="Let kids 2-10 pick their own music without screens. Tap a cassette, play a song. Works with Spotify.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="og-image.jpg">
 
@@ -159,6 +159,17 @@
             font-size: 1.25rem;
             color: var(--text-light);
             margin-bottom: 2rem;
+        }
+
+        .age-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
         .hero-cta {
@@ -962,7 +973,8 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Stop being your toddler's <span>human remote control</span></h1>
+                <h1>Their music, their terms, <span>without screens</span></h1>
+                <p class="age-badge">For kids 2-10</p>
                 <p class="subtitle">Tiny cassettes that let your child control their own music. No swiping. No staring at screens. Just tap and play.</p>
                 <form class="hero-form" action="https://formspree.io/f/mkgdqzgq" method="POST">
                     <input type="hidden" name="_next" value="https://mattys-jukebox.vercel.app/thanks.html">
